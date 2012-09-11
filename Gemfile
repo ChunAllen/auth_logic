@@ -9,6 +9,9 @@ gem 'pg'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
+gem 'jquery-datatables-rails'
+gem 'jquery-ui-rails'
+gem 'will_paginate'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

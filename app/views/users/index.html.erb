@@ -7,6 +7,17 @@
   </li>
 </ul>
 
-
-
-View
+<table id="users" class="display" >
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>User Type</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @users.each do |u| %>
+  	<td><%= u.email %></td>
+  	<td><%= u.user_type %></td>
+  	<% end %>
+  </tbody>
+</table>

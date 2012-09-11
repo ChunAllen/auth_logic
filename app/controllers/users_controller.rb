@@ -11,12 +11,15 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		if @user.save
-			redirect_to users_path
-		else
-			redirect_to new_user_path
+		respond_to do |format|
+			if @user.save
+				format.html { redirect_to(users_path, :notice => 'Success.') }
+	       		format.xml  { render :xml => @user, :status => :created, :location => @user }
+			else
+				format.html { render :action => "new" }
+	      		format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+			end
 		end
-
 	end
 
 end

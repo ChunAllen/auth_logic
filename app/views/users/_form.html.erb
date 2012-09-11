@@ -1,8 +1,15 @@
+  <% flash.each do |name, msg| %>
+       <div class="alert alert-<%= name == :notice ? "success"  : "error" %>">
+         <a class="close" data-dismiss="alert">x</a>
+         <%= msg %>
+       </div>
+     <% end %>
+
 <%= simple_form_for @user do |f| %>
  <%= f.hidden_field :user_type, :value => "Secretary" %>
   
   <%= f.input :email, :required => true %>
   <%= f.input :password ,:required => true %>
   
-  <%= f.button :submit %>
+  <%= f.submit "Save" %>
 <% end %>
