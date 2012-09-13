@@ -1,25 +1,41 @@
 class UsersController < ApplicationController
 
+  def new
+    super
+  end
+  
+ 	def show
+ 		@users = User.find(params[:id])
+ 	end
+
+
+
 	def index
 		@users = User.all
 	end
 
 
 	def new
+		puts '>>>>>>>>>>'
 		@user = User.new
 	end
 
 	def create
+		puts '>>>>>>>>>>'
 		@user = User.new(params[:user])
-		respond_to do |format|
-			if @user.save
-				format.html { redirect_to(users_path, :notice => 'Success.') }
-	       		format.xml  { render :xml => @user, :status => :created, :location => @user }
-			else
-				format.html { render :action => "new" }
-	      		format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-			end
-		end
+		@user.save
 	end
+
+
+	def destroy 
+  		 signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    	 respond_to do |format|
+        	 format.js  { render :partial => 'log_me_out',:layout => false }
+    	 end
+	end
+
+
+
+
 
 end

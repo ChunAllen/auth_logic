@@ -1,7 +1,7 @@
 AuthLogic::Application.routes.draw do
-  devise_for :users
-
-  resources :users
+  devise_for :users  do 
+    resources :users  
+  end
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

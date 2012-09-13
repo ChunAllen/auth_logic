@@ -16,8 +16,10 @@
   </thead>
   <tbody>
   	<% @users.each do |u| %>
+    <tr>
   	<td><%= u.email %></td>
   	<td><%= u.user_type %></td>
-  	<% end %>
+  	</tr>
+    <% end %>
   </tbody>
 </table>
